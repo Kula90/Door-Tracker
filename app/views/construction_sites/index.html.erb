@@ -1,0 +1,67 @@
+<div class="main-container">
+
+  <!-- Flash Messages -->
+  <% if notice %>
+    <div class="alert alert-notice">
+      <button class="close-btn">&times;</button> <!-- Close button -->
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="alert alert-alert">
+      <button class="close-btn">&times;</button> <!-- Close button -->
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <h1 class="page-title">Fire Door Tracker</h1>
+
+  <div class="sites-container">
+    <% @construction_sites.each do |site| %>
+      <div class="site-card">
+        <!-- Accordion header -->
+        <button class="accordion-header">
+          <%= site.name %>
+          <span class="accordion-toggle-icon">+</span>
+        </button>
+
+        <!-- Accordion content -->
+        <div class="site-details accordion-content">
+          <div class="detail-item">
+            <p class="detail-text">Floors:</p>
+            <p class="detail-link"><%= site.floors %></p>
+          </div>
+          <div class="detail-item">
+            <p class="detail-text">Requested Deliveries:</p>
+            <%= link_to "#{site.requested_deliveries.count} Deliveries (#{site.total_requested_doors} Doors)", construction_site_requested_deliveries_path(site), class: 'btn-detail-custom requested-deliveries-custom' %>
+          </div>
+          <div class="detail-item">
+            <p class="detail-text">Completed Deliveries:</p>
+            <%= link_to "#{site.delivered_deliveries.count} Deliveries (#{site.total_delivered_doors} Doors)", construction_site_delivered_deliveries_path(site), class: 'btn-detail-custom completed-deliveries-custom' %>
+          </div>
+          <div class="detail-item">
+            <p class="detail-text">Total Installed:</p>
+            <%= link_to "#{site.total_number_of_doors} Doors Installed", construction_site_door_installations_path(site), class: 'btn-detail-custom total-installed-custom' %>
+          </div>
+          <div class="site-actions">
+            <%= link_to edit_construction_site_path(site), class: 'btn-action edit-site' do %>
+              <i class="fa fa-pencil-alt"></i>
+            <% end %>
+            <%= link_to '#', class: 'btn-action delete-site delete-link', href: construction_site_path(site) do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+  <%= link_to '+', new_construction_site_path, class: 'btn-action new-site' %>
+</div>
+
+</div>
+
+<!-- Render the delete confirmation modal -->
+<%= render 'shared/delete_modal' %>

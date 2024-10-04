@@ -1,0 +1,49 @@
+<!-- app/views/door_installations/edit.html.erb -->
+
+<div class="edit-door-installation">
+  <h1>Edit Door Installation</h1>
+  <p>For <%= @construction_site.name %></p>
+
+  <%= form_with(model: [@construction_site, @door_installation], local: true) do |form| %>
+    <% if @door_installation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@door_installation.errors.count, "error") %> prohibited this door installation from being saved:</h2>
+        <ul>
+          <% @door_installation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="edit-door-field">
+      <%= form.label :block, "Block:", for: 'edit_door_installation_block' %>
+      <%= form.text_field :block, id: 'edit_door_installation_block' %>
+    </div>
+
+    <div class="edit-door-field">
+      <%= form.label :floor, "Floor:", for: 'edit_door_installation_floor' %>
+      <%= form.number_field :floor, id: 'edit_door_installation_floor' %>
+    </div>
+
+    <div class="edit-door-field">
+      <%= form.label :number_of_doors, "Number of Doors:", for: 'edit_door_installation_number_of_doors' %>
+      <%= form.number_field :number_of_doors, id: 'edit_door_installation_number_of_doors' %>
+    </div>
+
+    <div class="edit-door-field">
+      <%= form.label :installation_date, "Installation Date:", for: 'edit_door_installation_installation_date' %>
+      <%= form.date_select :installation_date, id: 'edit_door_installation_installation_date', data: { behavior: 'date-input' }, order: [:day, :month, :year] %>
+      <%= hidden_field_tag 'formatted_installation_date', '', id: 'formatted_installation_date' %>
+    </div>
+
+    <div class="edit-door-field">
+      <%= form.label :installation_time, "Installation Time:", for: 'edit_door_installation_installation_time' %>
+      <%= form.time_select :installation_time, { include_seconds: false }, { id: 'edit_door_installation_installation_time' } %>
+    </div>
+
+    <div class="edit-door-btn-actions">
+      <%= form.submit "Update Door Installation" %>
+    </div>
+  <% end %>
+</div>

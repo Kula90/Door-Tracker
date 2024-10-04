@@ -1,0 +1,8 @@
+# test/fixtures/floors.yml
+one:
+  number_of_floors: 2
+  construction_site: one
+
+two:
+  number_of_floors: 3
+  construction_site: two

@@ -1,0 +1,119 @@
+<h1><%= @construction_site.name %></h1>
+
+<h2>Requested Deliveries</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Doors</th>
+        <th>Delivery Date</th>
+        <th>Delivery Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @requested_deliveries.present? %>
+        <% @requested_deliveries.each do |delivery| %>
+          <tr>
+            <td><%= delivery.number_of_doors %></td>
+            <td><%= delivery.delivery_date.strftime('%d-%m-%Y') if delivery.delivery_date %></td>
+            <td><%= delivery.delivery_time.strftime('%H:%M') if delivery.delivery_time %></td>
+            <td>
+              <%= link_to 'Edit', edit_construction_site_requested_delivery_path(@construction_site, delivery), class: 'btn-action edit-link' %>
+              <%= link_to '#', class: 'btn-action delete-site delete-link', href: construction_site_requested_delivery_path(@construction_site, delivery) do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4">No requested deliveries found.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h2>Delivered Deliveries</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Doors</th>
+        <th>Delivered Date</th>
+        <th>Delivered Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @delivered_deliveries.present? %>
+        <% @delivered_deliveries.each do |delivery| %>
+          <tr>
+            <td><%= delivery.number_of_doors %></td>
+            <td><%= delivery.delivery_date.strftime('%d-%m-%Y') if delivery.delivery_date %></td>
+            <td><%= delivery.delivery_time.strftime('%H:%M') if delivery.delivery_time %></td>
+            <td>
+              <%= link_to 'Edit', edit_construction_site_delivered_delivery_path(@construction_site, delivery), class: 'btn-action edit-link' %>
+              <%= link_to '#', class: 'btn-action delete-site delete-link', href: construction_site_delivered_delivery_path(@construction_site, delivery) do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4">No delivered deliveries found.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h2>Door Installations</h2>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Block</th>
+        <th>Floor</th>
+        <th>Doors</th>
+        <th>Installed Date</th>
+        <th>Installed Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @door_installations.present? %>
+        <% @door_installations.each do |installation| %>
+          <tr>
+            <td><%= installation.block %></td>
+            <td><%= installation.floor %></td>
+            <td><%= installation.number_of_doors %></td>
+            <td><%= installation.installation_date.strftime('%d-%m-%Y') if installation.installation_date %></td>
+            <td><%= installation.installation_time.strftime('%H:%M') if installation.installation_time %></td>
+            <td>
+              <%= link_to 'Edit', edit_construction_site_door_installation_path(@construction_site, installation), class: 'btn-action edit-link' %>
+              <%= link_to '#', class: 'btn-action delete-site delete-link', href: construction_site_door_installation_path(@construction_site, installation) do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="6">No door installations found.</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="actions">
+  <%= link_to 'Add Requested Delivery', new_construction_site_requested_delivery_path(@construction_site), class: 'btn-action new-site' %>
+  <%= link_to 'Add Delivered Delivery', new_construction_site_delivered_delivery_path(@construction_site), class: 'btn-action new-site' %>
+  <%= link_to 'Add Door Installation', new_construction_site_door_installation_path(@construction_site), class: 'btn-action new-site' %>
+</div>
+
+<!-- Render the delete confirmation modal -->
+<%= render 'shared/delete_modal' %>

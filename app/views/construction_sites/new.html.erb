@@ -1,0 +1,30 @@
+<div class="new-construction-site">
+  <h1>New Construction Site</h1>
+
+  <%= form_with(model: @construction_site, local: true) do |form| %>
+    <% if @construction_site.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@construction_site.errors.count, "error") %> prohibited this construction site from being saved:</h2>
+        <ul>
+          <% @construction_site.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, "Name:", for: 'new_construction_site_name' %>
+      <%= form.text_field :name, id: 'new_construction_site_name' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :floors, "Floors:", for: 'new_construction_site_floors' %>
+      <%= form.number_field :floors, id: 'new_construction_site_floors' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create Construction Site" %>
+    </div>
+  <% end %>
+</div>

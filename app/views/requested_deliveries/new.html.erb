@@ -1,0 +1,38 @@
+<!-- app/views/requested_deliveries/new.html.erb -->
+
+<div class="new-requested-delivery">
+  <h1>New Requested Delivery</h1>
+  <p>For <%= @construction_site.name %></p>
+
+  <%= form_with(model: [@construction_site, @requested_delivery], local: true) do |form| %>
+    <% if @requested_delivery.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@requested_delivery.errors.count, "error") %> prohibited this requested delivery from being saved:</h2>
+        <ul>
+          <% @requested_delivery.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :number_of_doors, "Number of Doors:", for: 'new_requested_delivery_number_of_doors' %>
+      <%= form.number_field :number_of_doors, id: 'new_requested_delivery_number_of_doors' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :delivery_date, "Requested Delivery Date:", for: 'new_requested_delivery_delivery_date' %>
+      <%= form.date_select :delivery_date, id: 'new_requested_delivery_delivery_date', data: { behavior: 'date-input' }, order: [:day, :month, :year] %>
+    </div>
+
+    <div class="field">
+      <%= form.label :delivery_time, "Delivery Time:", for: 'new_requested_delivery_delivery_time' %>
+      <%= form.time_select :delivery_time, { include_seconds: false }, { id: 'new_requested_delivery_delivery_time' } %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save Requested Delivery" %>
+    </div>
+  <% end %>
+</div>

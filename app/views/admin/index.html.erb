@@ -1,0 +1,7 @@
+<!-- app/views/admin/index.html.erb -->
+<h1>Admin Dashboard</h1>
+
+<%= link_to 'Manage Users', admin_users_path %>
+<%= link_to 'Edit Construction Sites', admin_construction_sites_path %>
+<%= link_to 'Back', root_path %>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>

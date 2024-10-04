@@ -1,0 +1,159 @@
+/* General Container */
+.login-container {
+    // background-image: url('../images/Liquid-Blue-Aesthetic-Wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px 20px 300px 20px;
+    box-sizing: border-box;
+}
+
+
+/* Title Styling */
+.login-title {
+    font-size: 1.8em;
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Form Container */
+.login-form {
+    padding: 25px;
+    max-width: 380px;
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.login-subtitle {
+    color: #000000;
+}
+
+.login-label {
+    color: #000000;
+}
+
+/* Adjusting Input Fields */
+.login-input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #E0E0E0;
+    border-radius: 30px;
+    background: #F9F9F9;
+    font-size: 0.9em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.login-input:focus {
+    border-color: #003366;
+}
+
+/* Specific adjustments for the email input to ensure consistency */
+.login-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Password Wrapper and Eye Icon */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 10px 0px;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #003366;
+    transition: color 0.3s;
+}
+
+.password-wrapper .toggle-password:hover {
+    color: #002244;
+}
+
+/* Submit Button - Styled like the edit door installation buttons */
+.login-submit {
+    appearance: none;
+    // background-color: transparent;
+    background-color: #003366;
+    border: 2px solid #E0E0E0;
+    border-radius: 15px;
+    box-sizing: border-box;
+    // background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.login-submit:hover {
+    color: #003366;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: scale(1.05);
+    border: 2px solid #ffffff;
+}
+
+/* Links */
+.login-links {
+    margin-top: 40px;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.login-link {
+    color: #2D84D9;
+    text-decoration: none;
+}
+
+.login-link.sign-up {
+    color: #2D84D9;
+    text-decoration: none;
+}
+
+/* Override for sessions.new to remove white space */
+.sessions.new {
+    padding-bottom: 0 !important;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

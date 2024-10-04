@@ -1,0 +1,16 @@
+# test/fixtures/door_installations.yml
+one:
+  number_of_doors: 5
+  installation_date: "2024-07-17"
+  installation_time: "14:00:00"
+  construction_site: one
+  floor: 1
+  block: "A"
+
+two:
+  number_of_doors: 10
+  installation_date: "2024-07-18"
+  installation_time: "15:00:00"
+  construction_site: two
+  floor: 2
+  block: "B"

@@ -1,0 +1,267 @@
+/* app/javascript/stylesheets/application.css */
+
+/* Global styles applicable to all pages */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('/assets/peakpx.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    color: #003366;
+}
+
+p {
+    color: #000000;
+    font-size: 15px;
+}
+
+/* Navigation Bar Styles */
+.nav-container {
+    background-color: #003366; /* Solid color */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+/* Navigation links */
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.back-link {
+    margin-left: 15px;
+}
+
+.home-link {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logout-link {
+    margin-right: 15px;
+}
+
+.nav-link i {
+    padding: 10px;
+    color: #ffffff;
+}
+
+@media (max-width: 365px) {
+    .nav-link i {
+        /* font-size: 1.8em; */
+    }
+}
+
+/* Hide the navigation bar on the login page */
+.sessions.new .nav-container {
+    display: none;
+}
+
+/* Remove unnecessary bottom padding on the login page */
+.sessions.new body {
+    padding-bottom: 0;
+}
+
+/* General Table Header Styles */
+th {
+    background-color: #003366;
+    color: white !important; /* Force white text */
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px !important;
+}
+
+/* Default Sort Icon */
+th::before {
+    content: '↕'; /* Default sort icon */
+    top: 50%; /* Vertically center the arrow */
+    transform: translateY(-50%); /* Ensure the arrow is centered vertically */
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 0.8em; /* Adjust size as needed */
+    opacity: 0.7; /* Slightly transparent to distinguish from active sort */
+}
+
+/* Styles for Sorted Columns */
+th.sorted-asc, th.sorted-desc {
+    background-color: #00509e !important; /* Ensure background is correct */
+    color: white !important; /* Ensure text color is white */
+}
+
+/* Remove Default Icon when Sorted */
+th.sorted-asc::before, th.sorted-desc::before {
+    content: ''; /* Remove default icon */
+}
+
+/* Add a Small Arrow to Indicate Sort Direction */
+th.sorted-asc::after {
+    content: '↑'; /* Up arrow for ascending sort */
+    top: 50%; /* Vertically center the arrow */
+    transform: translateY(-50%); /* Ensure the arrow is centered vertically */
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 0.8em; /* Adjust size as needed */
+}
+
+th.sorted-desc::after {
+    content: '↓'; /* Down arrow for descending sort */
+    top: 50%; /* Vertically center the arrow */
+    transform: translateY(-50%); /* Ensure the arrow is centered vertically */
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 0.8em; /* Adjust size as needed */
+}
+
+/* Hover Effect for All Headers */
+th:hover {
+    background-color: #002244 !important;
+    color: white !important;
+}
+
+/* Handle Link Colors in Table Headers */
+th a {
+    color: white !important; /* Ensure links in headers are also white */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Specific Styles to Remove Sort Icons and Hover Effects from Action Column */
+th.actions-header,
+th:last-child {
+    cursor: default; /* Remove pointer cursor */
+    background-color: #003366; /* Keep the background color consistent */
+    padding-left: 5px !important; /* Reduce left padding */
+    padding-right: 5px !important; /* Reduce right padding */
+    position: relative; /* Ensure positioning context */
+}
+
+th.actions-header::before,
+th.actions-header::after,
+th:last-child::before,
+th:last-child::after {
+    content: ''; /* Remove sort icons */
+}
+
+th.actions-header:hover,
+th:last-child:hover {
+    background-color: #003366 !important; /* Prevent hover effect */
+}
+
+/* Hide the three-dot icon in the actions-header */
+th.actions-header .fa-ellipsis-h {
+    display: none;
+}
+
+/* Flash Messages */
+.alert {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    position: relative; /* For positioning the close button */
+    max-width: 90%;
+    margin: 10px auto;
+}
+
+.alert .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: inherit; /* Inherit color from the parent alert */
+    line-height: 1;
+    padding: 0;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.alert-notice {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Accordion Header */
+.accordion-header {
+    background-color: #003366;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: #002244;
+}
+
+/* Accordion Toggle Icon */
+.accordion-toggle-icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-left: auto;
+}
+
+/* Accordion Content (Hidden by Default) */
+.accordion-content {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Show accordion content when active */
+.accordion-header.active + .accordion-content {
+    display: block;
+}

@@ -1,0 +1,12 @@
+<!-- app/views/requested_deliveries/_delete_modal_requested.html.erb -->
+<div id="deleteModalRequested" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete this requested delivery?</p>
+    <div class="modal-actions">
+      <%= button_to 'Delete', '', method: :delete, class: 'delete-button', id: 'confirmDeleteButtonRequested' %>
+      <button class="cancel-button">Cancel</button>
+    </div>
+  </div>
+</div>

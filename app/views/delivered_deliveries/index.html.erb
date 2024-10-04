@@ -1,0 +1,79 @@
+<!-- app/views/delivered_deliveries/index.html.erb -->
+
+<div class="section deliveries delivered">
+  <h1>Completed Deliveries</h1>
+  <p>For <%= @construction_site.name %></p>
+
+  <div class="search-form">
+    <%= form_with url: construction_site_delivered_deliveries_path(@construction_site), method: :get, local: true do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search Completed Delivery", class: "search-input" %>
+      <button type="submit" class="search-button">
+        Go <i class="fa fa-search"></i>
+      </button>
+    <% end %>
+  </div>
+
+  <div class="pagination-container">
+    <%= paginate @delivered_deliveries, class: 'pagination' %>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'number_of_doors' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'number_of_doors' && params[:direction] == 'desc' %>">
+            <%= sortable "number_of_doors", "Doors" %>
+          </th>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'delivery_date' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'delivery_date' && params[:direction] == 'desc' %>">
+            <%= sortable "delivery_date", "Delivered Date" %>
+          </th>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'delivery_time' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'delivery_time' && params[:direction] == 'desc' %>">
+            <%= sortable "delivery_time", "Delivered Time" %>
+          </th>
+          <th class="actions-header">
+            <i class="fa fa-ellipsis-h"></i> <!-- The three-dot icon for actions -->
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @delivered_deliveries.any? %>
+          <% @delivered_deliveries.each do |delivery| %>
+            <tr id="<%= dom_id(delivery) %>">
+              <td><%= delivery.number_of_doors %></td>
+              <td><%= delivery.delivery_date.strftime('%d-%m-%y') if delivery.delivery_date %></td>
+              <td><%= delivery.delivery_time.strftime('%H:%M') if delivery.delivery_time %></td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropbtn">
+                    <i class="fa fa-ellipsis-h"></i> <!-- Icon for dropdown -->
+                  </button>
+                  <div class="dropdown-content">
+                    <%= link_to edit_construction_site_delivered_delivery_path(@construction_site, delivery), class: 'action edit', title: 'Edit' do %>
+                      <i class="fa fa-pencil-alt"></i> Edit
+                    <% end %>
+                    <%= link_to '#', class: 'action delete delete-link-delivered', title: 'Delete', data: { turbo: false, url: construction_site_delivered_delivery_path(@construction_site, delivery) } do %>
+  <i class="fa fa-trash"></i> Delete
+<% end %>
+
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr class="fade-in">
+            <td colspan="4">No delivered deliveries found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btn-actions add-item">
+    <%= link_to 'Add Completed Delivery', new_construction_site_delivered_delivery_path(@construction_site) %>
+  </div>
+</div>
+
+<!-- Render the custom delete modal -->
+<%= render 'delivered_deliveries/delete_modal_delivered' %>

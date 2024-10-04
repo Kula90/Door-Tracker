@@ -1,0 +1,19 @@
+one:
+  email: user1@example.com
+  encrypted_password: $2a$12$uI1jvXlGvLfK8ps7iFbriOcLQaZwXpbph5O2gQEyUEp2AdGmBOaFS
+
+two:
+  email: user2@example.com
+  encrypted_password: $2a$12$VG2dxD8KwflS9FzC5oSLr.Dqxxz7Jh/Nl3GF5HKLbIsGde0Jb3SFe
+
+three:
+  email: user3@example.com
+  encrypted_password: $2a$12$OeUu3dKQKJKYToF3M5Y1CeCm45G9U0z.wACQIGhTCFiMB15P2Jm5O
+
+four:
+  email: user4@example.com
+  encrypted_password: $2a$12$pJm1vEDaMELP4jC9/mRII.LiDjlM4ltDSdk4cpUC1ZhLX9K6R6cfG
+
+five:
+  email: user5@example.com
+  encrypted_password: $2a$12$DGES12Lzjfp4.uoHsZZvWusGJHhW5ODRf46XzXFYUo5f0bryj6L.a

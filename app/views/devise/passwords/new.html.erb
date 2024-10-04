@@ -1,0 +1,20 @@
+<div class="password-reset-container">
+  <h2 class="password-reset-title">Forgot your password?</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "password-reset-form", method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="password-reset-field">
+      <%= f.label :email, "Email:",class: "password-reset-label" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "password-reset-input" %>
+    </div>
+
+    <div class="password-reset-actions">
+      <%= f.submit "Send me reset password instructions", class: "password-reset-submit" %>
+    </div>
+  <% end %>
+
+  <div class="password-reset-links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

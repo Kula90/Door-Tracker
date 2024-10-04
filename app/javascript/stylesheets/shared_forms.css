@@ -1,0 +1,358 @@
+/* delivery_forms.css */
+
+/* General Styles for Forms (Deliveries, Door Installations, and Construction Sites) */
+.new-delivered-delivery,
+.edit-delivered-delivery,
+.new-requested-delivery,
+.edit-requested-delivery,
+.new-door-installation,
+.edit-door-installation,
+.new-construction-site,
+.edit-construction-site {
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #ffffff; */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.new-delivered-delivery h1,
+.edit-delivered-delivery h1,
+.new-requested-delivery h1,
+.edit-requested-delivery h1,
+.new-door-installation h1,
+.edit-door-installation h1,
+.new-construction-site h1,
+.edit-construction-site h1 {
+    color: #003366;
+    margin-top: 0px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* Paragraph Styles */
+.new-delivered-delivery p,
+.edit-delivered-delivery p,
+.new-requested-delivery p,
+.edit-requested-delivery p,
+.new-door-installation p,
+.edit-door-installation p,
+.new-construction-site p,
+.edit-construction-site p {
+    text-align: center;
+    color: #003366;
+    margin: 10px 0px 25px 0px;
+}
+
+/* Form Styles */
+.new-delivered-delivery form,
+.edit-delivered-delivery form,
+.new-requested-delivery form,
+.edit-requested-delivery form,
+.new-door-installation form,
+.edit-door-installation form,
+.new-construction-site form,
+.edit-construction-site form {
+    /* background: #ffffff; */
+    padding: 40px;
+    max-width: 375px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Field Styles */
+.new-delivered-delivery form .field,
+.edit-delivered-delivery form .field,
+.new-requested-delivery form .field,
+.edit-requested-delivery form .field,
+.new-door-installation form .new-door-field,
+.edit-door-installation form .edit-door-field,
+.new-construction-site form .field,
+.edit-construction-site form .field {
+    margin-bottom: 20px;
+}
+
+/* Label Styles */
+.new-delivered-delivery form label,
+.edit-delivered-delivery form label,
+.new-requested-delivery form label,
+.edit-requested-delivery form label,
+.new-door-installation form label,
+.edit-door-installation form label,
+.new-construction-site form label,
+.edit-construction-site form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #003366;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+/* Input Styles */
+.new-delivered-delivery form input[type="text"],
+.edit-delivered-delivery form input[type="text"],
+.new-requested-delivery form input[type="text"],
+.edit-requested-delivery form input[type="text"],
+.new-delivered-delivery form input[type="number"],
+.edit-delivered-delivery form input[type="number"],
+.new-requested-delivery form input[type="number"],
+.edit-requested-delivery form input[type="number"],
+.new-delivered-delivery form select,
+.edit-delivered-delivery form select,
+.new-requested-delivery form select,
+.edit-requested-delivery form select,
+.new-delivered-delivery form input[type="date"],
+.edit-delivered-delivery form input[type="date"],
+.new-requested-delivery form input[type="date"],
+.edit-requested-delivery form input[type="date"],
+.new-delivered-delivery form input[type="time"],
+.edit-delivered-delivery form input[type="time"],
+.new-requested-delivery form input[type="time"],
+.edit-requested-delivery form input[type="time"],
+.new-door-installation form input[type="text"],
+.edit-door-installation form input[type="text"],
+.new-door-installation form input[type="number"],
+.edit-door-installation form input[type="number"],
+.new-door-installation form select,
+.edit-door-installation form select,
+.new-door-installation form input[type="date"],
+.edit-door-installation form input[type="date"],
+.new-door-installation form input[type="time"],
+.edit-door-installation form input[type="time"],
+.new-construction-site form input[type="text"],
+.edit-construction-site form input[type="text"],
+.new-construction-site form input[type="number"],
+.edit-construction-site form input[type="number"] {
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0px 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Input Focus Styles */
+.new-delivered-delivery form input[type="text"]:focus,
+.edit-delivered-delivery form input[type="text"]:focus,
+.new-requested-delivery form input[type="text"]:focus,
+.edit-requested-delivery form input[type="text"]:focus,
+.new-delivered-delivery form input[type="number"]:focus,
+.edit-delivered-delivery form input[type="number"]:focus,
+.new-requested-delivery form input[type="number"]:focus,
+.edit-requested-delivery form input[type="number"]:focus,
+.new-delivered-delivery form select:focus,
+.edit-delivered-delivery form select:focus,
+.new-requested-delivery form select:focus,
+.edit-requested-delivery form select:focus,
+.new-delivered-delivery form input[type="date"]:focus,
+.edit-delivered-delivery form input[type="date"]:focus,
+.new-requested-delivery form input[type="date"]:focus,
+.edit-requested-delivery form input[type="date"]:focus,
+.new-delivered-delivery form input[type="time"]:focus,
+.edit-delivered-delivery form input[type="time"]:focus,
+.new-requested-delivery form input[type="time"]:focus,
+.edit-requested-delivery form input[type="time"]:focus,
+.new-door-installation form input[type="text"]:focus,
+.edit-door-installation form input[type="text"]:focus,
+.new-door-installation form input[type="number"]:focus,
+.edit-door-installation form input[type="number"]:focus,
+.new-door-installation form select:focus,
+.edit-door-installation form select:focus,
+.new-door-installation form input[type="date"]:focus,
+.edit-door-installation form input[type="date"]:focus,
+.new-door-installation form input[type="time"]:focus,
+.edit-door-installation form input[type="time"]:focus,
+.new-construction-site form input[type="text"]:focus,
+.edit-construction-site form input[type="text"]:focus,
+.new-construction-site form input[type="number"]:focus,
+.edit-construction-site form input[type="number"]:focus {
+    border-color: #003366;
+}
+
+/* Button Actions Styles */
+.new-delivered-delivery form .actions,
+.edit-delivered-delivery form .actions,
+.new-requested-delivery form .actions,
+.edit-requested-delivery form .actions,
+.new-door-installation form .new-door-btn-actions,
+.edit-door-installation form .edit-door-btn-actions,
+.new-construction-site form .actions,
+.edit-construction-site form .actions {
+    margin-top: auto; /* Pushes the button towards the bottom */
+    padding-top: 75px;
+    justify-content: center;
+}
+
+/* Submit Button Styles */
+.new-delivered-delivery form .actions input[type="submit"],
+.edit-delivered-delivery form .actions input[type="submit"],
+.new-requested-delivery form .actions input[type="submit"],
+.edit-requested-delivery form .actions input[type="submit"],
+.new-door-installation form .new-door-btn-actions input[type="submit"],
+.edit-door-installation form .edit-door-btn-actions input[type="submit"],
+.new-construction-site form .actions input[type="submit"],
+.edit-construction-site form .actions input[type="submit"] {
+    background-color: #003366;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 1) 0 0px 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+}
+
+/* Hover state for the submit button */
+.new-delivered-delivery form .actions input[type="submit"]:hover,
+.edit-delivered-delivery form .actions input[type="submit"]:hover,
+.new-requested-delivery form .actions input[type="submit"]:hover,
+.edit-requested-delivery form .actions input[type="submit"]:hover,
+.new-door-installation form .new-door-btn-actions input[type="submit"]:hover,
+.edit-door-installation form .edit-door-btn-actions input[type="submit"]:hover,
+.new-construction-site form .actions input[type="submit"]:hover,
+.edit-construction-site form .actions input[type="submit"]:hover {
+    background-color: #002244;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Error Explanation Styling */
+.new-delivered-delivery #error_explanation,
+.edit-delivered-delivery #error_explanation,
+.new-requested-delivery #error_explanation,
+.edit-requested-delivery #error_explanation,
+.new-door-installation #error_explanation,
+.edit-door-installation #error_explanation,
+.new-construction-site #error_explanation,
+.edit-construction-site #error_explanation {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.new-delivered-delivery #error_explanation h2,
+.edit-delivered-delivery #error_explanation h2,
+.new-requested-delivery #error_explanation h2,
+.edit-requested-delivery #error_explanation h2,
+.new-door-installation #error_explanation h2,
+.edit-door-installation #error_explanation h2,
+.new-construction-site #error_explanation h2,
+.edit-construction-site #error_explanation h2 {
+    margin-top: 0;
+}
+
+.new-delivered-delivery #error_explanation ul,
+.edit-delivered-delivery #error_explanation ul,
+.new-requested-delivery #error_explanation ul,
+.edit-requested-delivery #error_explanation ul,
+.new-door-installation #error_explanation ul,
+.edit-door-installation #error_explanation ul,
+.new-construction-site #error_explanation ul,
+.edit-construction-site #error_explanation ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 375px) {
+    .new-delivered-delivery h1,
+    .edit-delivered-delivery h1,
+    .new-requested-delivery h1,
+    .edit-requested-delivery h1,
+    .new-door-installation h1,
+    .edit-door-installation h1,
+    .new-construction-site h1,
+    .edit-construction-site h1 {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-top: 10px;
+    }
+
+    .new-delivered-delivery form,
+    .edit-delivered-delivery form,
+    .new-requested-delivery form,
+    .edit-requested-delivery form,
+    .new-door-installation form,
+    .edit-door-installation form,
+    .new-construction-site form,
+    .edit-construction-site form {
+        padding: 20px;
+    }
+
+    .new-delivered-delivery form label,
+    .edit-delivered-delivery form label,
+    .new-requested-delivery form label,
+    .edit-requested-delivery form label,
+    .new-door-installation form label,
+    .edit-door-installation form label,
+    .new-construction-site form label,
+    .edit-construction-site form label,
+    .new-delivered-delivery form input,
+    .edit-delivered-delivery form input,
+    .new-requested-delivery form input,
+    .edit-requested-delivery form input,
+    .new-door-installation form input,
+    .edit-door-installation form input,
+    .new-construction-site form input,
+    .edit-construction-site form input,
+    .new-delivered-delivery form button,
+    .edit-delivered-delivery form button,
+    .new-requested-delivery form button,
+    .edit-requested-delivery form button,
+    .new-door-installation form button,
+    .edit-door-installation form button,
+    .new-construction-site form button,
+    .edit-construction-site form button {
+        font-size: 0.9em;
+    }
+}
+
+
+/* Specific targeting for Door Installations forms and paragraphs */
+
+/* Targeting the form elements in both new and edit sections */
+.new-door-installation form,
+.edit-door-installation form {
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+/* Targeting the paragraph elements in both new and edit sections */
+.new-door-installation p,
+.edit-door-installation p {
+    margin-bottom: 5px;
+
+}
+
+/* Specific styles for the button in new door installations */
+.new-door-installation .new-door-btn-actions input[type="submit"],
+.edit-door-installation .edit-door-btn-actions input[type="submit"] {
+    padding: 5px 15px; /* Adjust padding as needed */
+    background-color: #003366; /* Keep the existing background color or modify it */
+    border-radius: 15px; /* Adjust border radius if necessary */
+    font-size: 0.9em; /* Adjust font size as needed */
+    margin-top: -60px; /* Adjust the margin to reduce space above the button */
+}
+
+
+/* Targeting the submit button for the construction sites edit form */
+.edit-construction-site form .actions {
+    margin-top: 140px; /* Adds space between the form fields and the button */
+}

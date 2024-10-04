@@ -1,0 +1,50 @@
+<div class="login-container">
+  <h1 class="login-title">Login</h1>
+  <p class="login-subtitle">Please sign in to continue</p>
+
+  <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
+    <div class="login-field">
+      <%= f.label :email, "E-mail address:", class: "login-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-input" %>
+    </div>
+
+    <div class="login-field">
+      <label for="password" class="login-label">Password:</label>
+      <div class="password-wrapper">
+        <%= f.password_field :password, autocomplete: "current-password", class: "login-input login-password" %>
+        <span class="toggle-password">
+          <i class="fas fa-eye"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="login-actions">
+      <%= f.submit "Log in", class: "login-submit" %>
+    </div>
+
+    <div class="login-links">
+      <%= link_to "I forgot my password", new_password_path(resource_name), class: "login-link" %>
+    </div>
+
+<div class="login-links">
+  <div class="login-label">Don't have an account?</div>
+  <p><%= link_to "Sign up", new_registration_path(resource_name), class: "login-link sign-up extra-spacing" %></p>
+</div>
+
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const togglePassword = document.querySelector('.toggle-password i');
+    const passwordInput = document.querySelector('.login-password');
+    
+    togglePassword.addEventListener('click', function() {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  });
+</script>
+

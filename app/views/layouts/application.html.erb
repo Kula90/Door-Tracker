@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DoorTracker</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="turbo-cache-control" content="no-cache">
+</head>
+<body class="<%= controller.controller_name %>">
+  <% if user_signed_in? %>
+    <header>
+      <nav class="nav-container">
+        <ul class="nav-links">
+          <li class="back-link">
+            <!-- Use JavaScript to handle back navigation -->
+<a href="<%= back_path %>" class="nav-link back-link">
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </li>
+          <li class="home-link">
+            <%= link_to construction_sites_path, class: 'nav-link home-link' do %>
+              <i class="fas fa-home"></i>
+            <% end %>
+          </li>
+          <li class="logout-link">
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link logout-link' do %>
+              <i class="fas fa-sign-out-alt"></i>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  <% end %>
+  <main class="<%= controller.controller_name %>">
+    <%= yield %>
+  </main>
+</body>
+</html>

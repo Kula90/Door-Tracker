@@ -1,0 +1,86 @@
+<div class="section door-installations">
+  <h1>Door Installations</h1>
+  <p>For <%= @construction_site.name %></p>
+
+  <div class="search-form">
+    <%= form_with url: construction_site_door_installations_path(@construction_site), method: :get, local: true do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search Door Installation", class: "search-input" %>
+      <button type="submit" class="search-button">
+        Go <i class="fa fa-search"></i>
+      </button>
+    <% end %>
+  </div>
+
+  <div class="pagination-container">
+    <%= paginate @door_installations, class: 'pagination' %>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'block' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'block' && params[:direction] == 'desc' %>">
+            <%= sortable "block", "Block" %>
+          </th>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'floor' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'floor' && params[:direction] == 'desc' %>">
+            <%= sortable "floor", "Floor" %>
+          </th>
+          <th class="sortable <%= 'sorted-asc' if params[:sort] == 'number_of_doors' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'number_of_doors' && params[:direction] == 'desc' %>">
+            <%= sortable "number_of_doors", "Doors" %>
+          </th>
+          <th class="sortable sortable-date <%= 'sorted-asc' if params[:sort] == 'installation_date' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'installation_date' && params[:direction] == 'desc' %>">
+            <%= sortable "installation_date", "Inst. Date" %>
+          </th>
+          <th class="sortable sortable-time <%= 'sorted-asc' if params[:sort] == 'installation_time' && params[:direction] == 'asc' %> <%= 'sorted-desc' if params[:sort] == 'installation_time' && params[:direction] == 'desc' %>">
+            <%= sortable "installation_time", "Inst. Time" %>
+          </th>
+          <th class="actions-header">
+            <i class="fa fa-ellipsis-h"></i> <!-- The three-dot icon for actions -->
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @door_installations.any? %>
+          <% @door_installations.each do |installation| %>
+            <tr id="<%= dom_id(installation) %>">
+              <td><%= installation.block %></td>
+              <td><%= installation.floor %></td>
+              <td><%= installation.number_of_doors %></td>
+              <td><%= installation.installation_date.strftime('%d-%m-%y') if installation.installation_date %></td>
+              <td><%= installation.installation_time.strftime('%H:%M') if installation.installation_time %></td>
+              <td>
+                <div class="dropdown">
+                  <button class="dropbtn">
+                    <i class="fa fa-ellipsis-h"></i> <!-- The three-dot icon for dropdown -->
+                  </button>
+                  <div class="dropdown-content">
+                    <%= link_to edit_construction_site_door_installation_path(@construction_site, installation), class: 'action edit', title: 'Edit' do %>
+                      <i class="fa fa-pencil-alt"></i> Edit
+                    <% end %>
+<%= link_to '#', class: 'action delete delete-link-door', title: 'Delete', data: { turbo: false, url: construction_site_door_installation_path(@construction_site, installation) } do %>
+  <i class="fa fa-trash"></i> Delete
+<% end %>
+
+
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr class="fade-in">
+            <td colspan="6">No door installations found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btn-actions add-item">
+    <%= link_to 'Add Door Installations', new_construction_site_door_installation_path(@construction_site) %>
+  </div>
+</div>
+
+<!-- Render the custom delete modal -->
+<%= render 'door_installations/delete_modal_door' %>

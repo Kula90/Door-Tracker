@@ -1,0 +1,302 @@
+/* deliveries_and_installations.css */
+
+/* General Styles for All Sections (Deliveries and Door Installations) */
+.section {
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #ffffff; */
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.section h1 {
+    color: #003366;
+    margin-top: 0px; /* Consistent margin for all sections */
+    font-size: 1em;
+    text-align: center;
+}
+
+.section p {
+    text-align: center;
+    color: #000000;
+    margin: 0px 0px 7.5px 0px;
+}
+
+/* Search Form Styles */
+.section .search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section .search-input {
+    padding: 10px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #f1f1f1;
+    font-size: 1em;
+    background-color: #f1f1f1;
+}
+
+.section .search-button {
+    padding: 10px;
+    border-radius: 0 25px 25px 0;
+    border: 1px solid #003366;
+    background-color: #003366;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.section .search-button:hover {
+    background-color: #002244;
+}
+
+.section .search-button i {
+    color: white;
+    pointer-events: none;
+}
+
+/* Table Styles */
+.section .table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    /* outline: 1px solid #f9f9f9; */
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0px 5px;
+    margin: 0px 10px;
+}
+
+.section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.section th, .section td {
+    padding: 10px;
+    text-align: center;
+}
+
+.section th {
+    background-color: #003366;
+    color: white;
+    /* outline: 1px solid #f9f9f9; */
+}
+
+/* Add border-right to the "Doors", "Delivered Date", and "Delivered Time" columns */
+.section th:nth-child(1) { /* Doors column */
+    border-right: 1px solid white;
+}
+
+.section th:nth-child(2) { /* Delivered Date column */
+    border-right: 1px solid white;
+}
+
+.section.door-installations th:nth-child(3) {
+    border-right: 1px solid white;
+}
+
+.section.door-installations th:nth-child(4) {
+    border-right: 1px solid white;
+}
+
+/* Border after the 3rd column for the Requested and Completed Deliveries pages */
+.section.deliveries th:nth-child(3), 
+.section.requested th:nth-child(3), 
+.section.delivered th:nth-child(3) {
+    border-right: 1px solid rgba(0, 51, 102, 0.9);
+}
+
+/* Border after the 5th column for the Door Installations page */
+.section.door-installations th:nth-child(5) {
+    border-right: 1px solid rgba(0, 51, 102, 0.9);
+}
+
+
+.section td {
+    background-color: #f9f9f9;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.section tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* Action and Button Styles */
+
+
+.section .edit .fa {
+    color: #003366;
+    /* padding-right: 8px; */
+}
+
+.section .delete .fa {
+    color: #dc3545;
+}
+
+/* Button and Pagination Styles */
+.section .btn-actions.add-item {
+    background-color: #003366;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 1) 0 0px 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 175px;
+    margin: 0;
+}
+
+.section .btn-actions.add-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.section .btn-actions.add-item:hover {
+    background-color: #002244;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%) scale(1.05);
+}
+
+.section .pagination-container {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    text-align: center;
+}
+
+.section .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.section .pagination a, .section .pagination span {
+    margin: 0 5px;
+    padding: 4px 4px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #003366;
+    min-width: 40px;
+    text-align: center;
+}
+
+.section .pagination a:hover, .section .pagination .current {
+    background-color: #003366;
+    color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 375px) {
+    .section h1 {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 7.5px;
+    }
+
+    .section th, .section td {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+
+    .section .search-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 7.5px;
+    }
+
+    .section .search-input {
+        flex: 1;
+        padding: 5px 10px;
+        border-radius: 25px 0 0 25px;
+        border: 1px solid #f1f1f1;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0px 5px;
+        font-size: 0.8em;
+    }
+
+    .section .search-button {
+        padding: 4px;
+        border-radius: 0 25px 25px 0;
+        border: 1px solid #003366;
+        background-color: #003366;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 0.9em;
+        cursor: pointer;
+    }
+
+    .section th, .section td {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+
+    .section .btn-actions.add-item {
+        padding: 10px 30px;
+        font-size: 1em;
+    }
+}
+
+
+
+/* Adjust the height of the table header (thead) in the door installations section */
+.section.door-installations thead th {
+    padding-top: 5px;    /* Adjust the top padding */
+    padding-bottom: 5px; /* Adjust the bottom padding */
+    padding-left: 5px; /* Adjust the left padding */
+    padding-right: 5px; /* Adjust the right padding */
+
+}
+
+
+/* deliveries_and_installations.css */
+
+/* Adjust the height of the table rows (tr) in the tbody of the door installations section */
+.section.door-installations tbody tr td{
+padding: 10px;
+
+}
+
+
+
+/* Fade-in effect for 'No requested deliveries found' message */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
+/* Optional styling for the no data message */
+.fade-in td {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: 20px;
+}
+

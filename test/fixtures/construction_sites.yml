@@ -1,0 +1,10 @@
+# test/fixtures/construction_sites.yml
+one:
+  name: "Site One"
+  address: "123 Main St"
+  floors: 2
+
+two:
+  name: "Site Two"
+  address: "456 Elm St"
+  floors: 3
