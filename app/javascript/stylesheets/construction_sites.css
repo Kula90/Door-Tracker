@@ -119,7 +119,7 @@
     color: #ffffff;
     text-align: center;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     border-radius: 30px;
     position: relative;
     transition: background-color 0.3s, color 0.3s;
@@ -264,7 +264,7 @@
     border-radius: 50%; /* Make it a circle */
     /* font-weight: bold; */
     position: fixed;
-    bottom: 55px; /* Adjust as needed to fit your layout */
+    bottom: 60px; /* Adjust as needed to fit your layout */
     right: 10px; /* Position at the bottom-right corner */
     text-align: center;
     width: 30px; /* Set a fixed width for the circle */

@@ -1,9 +1,10 @@
 <!-- app/views/construction_sites/edit.html.erb -->
-
 <div class="edit-construction-site">
   <h1>Edit Construction Site</h1>
 
-  <%= form_with(model: @construction_site, local: true) do |form| %>
+
+<div id="construction_site_form">
+  <%= form_with(model: @construction_site, local: true, data: { turbo: false }) do |form| %>
     <% if @construction_site.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@construction_site.errors.count, "error") %> prohibited this construction site from being saved:</h2>
@@ -16,17 +17,18 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :name, "Name:", for: 'edit_construction_site_name' %>
-      <%= form.text_field :name, id: 'edit_construction_site_name' %>
+      <%= form.label :name, "Name:", for: 'new_construction_site_name' %>
+      <%= form.text_field :name, id: 'new_construction_site_name' %>
     </div>
 
     <div class="field">
-      <%= form.label :floors, "Floors:", for: 'edit_construction_site_floors' %>
-      <%= form.number_field :floors, id: 'edit_construction_site_floors' %>
+      <%= form.label :floors, "Floors:", for: 'new_construction_site_floors' %>
+      <%= form.number_field :floors, id: 'new_construction_site_floors' %>
     </div>
 
     <div class="actions">
-      <%= form.submit "Update Construction Site" %>
+      <%= form.submit "Create Construction Site" %>
     </div>
   <% end %>
 </div>
+

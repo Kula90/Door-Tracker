@@ -1,4 +1,4 @@
-/* delivery_forms.css */
+/* shared_forms.css */
 
 /* General Styles for Forms (Deliveries, Door Installations, and Construction Sites) */
 .new-delivered-delivery,
@@ -60,7 +60,7 @@
     padding: 40px;
     max-width: 375px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -178,7 +178,7 @@
     border-color: #003366;
 }
 
-/* Button Actions Styles */
+/* Make the submit button fixed near the bottom */
 .new-delivered-delivery form .actions,
 .edit-delivered-delivery form .actions,
 .new-requested-delivery form .actions,
@@ -187,10 +187,19 @@
 .edit-door-installation form .edit-door-btn-actions,
 .new-construction-site form .actions,
 .edit-construction-site form .actions {
-    margin-top: auto; /* Pushes the button towards the bottom */
-    padding-top: 75px;
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
     justify-content: center;
+    z-index: 1000;
+    /* background-color: white; */
+    /* padding: 10px 0; */
 }
+
 
 /* Submit Button Styles */
 .new-delivered-delivery form .actions input[type="submit"],
@@ -255,6 +264,7 @@
 .new-construction-site #error_explanation h2,
 .edit-construction-site #error_explanation h2 {
     margin-top: 0;
+    font-size: 1.2em;
 }
 
 .new-delivered-delivery #error_explanation ul,
@@ -339,16 +349,6 @@
 .edit-door-installation p {
     margin-bottom: 5px;
 
-}
-
-/* Specific styles for the button in new door installations */
-.new-door-installation .new-door-btn-actions input[type="submit"],
-.edit-door-installation .edit-door-btn-actions input[type="submit"] {
-    padding: 5px 15px; /* Adjust padding as needed */
-    background-color: #003366; /* Keep the existing background color or modify it */
-    border-radius: 15px; /* Adjust border radius if necessary */
-    font-size: 0.9em; /* Adjust font size as needed */
-    margin-top: -60px; /* Adjust the margin to reduce space above the button */
 }
 
 

@@ -1,8 +1,8 @@
+# app/controllers/construction_sites_controller.rb
 class ConstructionSitesController < ApplicationController
   before_action :set_construction_site, only: [:show, :edit, :update, :destroy]
 
   def index
-    # Order the construction sites by creation date, newest first
     @construction_sites = ConstructionSite.order(created_at: :desc)
   end
 
@@ -18,23 +18,32 @@ class ConstructionSitesController < ApplicationController
 
   def create
     @construction_site = ConstructionSite.new(construction_site_params)
-    if @construction_site.save
-      redirect_to construction_sites_path, notice: 'Construction site was successfully created.'
-    else
-      render :new
+  
+    respond_to do |format|
+      if @construction_site.save
+        format.html { redirect_to construction_sites_path, notice: 'Construction site was successfully created.' }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('construction_site_form', partial: 'construction_sites/form', locals: { construction_site: @construction_site }) }
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
+  
   
   def edit
   end
 
   def update
-    if @construction_site.update(construction_site_params)
-      redirect_to construction_sites_path, notice: 'Construction site was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @construction_site.update(construction_site_params)
+        format.html { redirect_to construction_sites_path, notice: 'Construction site was successfully updated.' }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('construction_site_form', partial: 'construction_sites/form', locals: { construction_site: @construction_site }) }
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
+  
   
   def destroy
     @construction_site.destroy
