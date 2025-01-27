@@ -33,3 +33,5 @@ group :test do
   gem "selenium-webdriver"
   gem "database_cleaner-active_record"
 end
+
+gem "serviceworker-rails", "~> 0.6.0"
