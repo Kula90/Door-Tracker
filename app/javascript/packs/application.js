@@ -64,3 +64,18 @@ if (!window.Turbo) {
 ActiveStorage.start();
 import "core-js/stable";
 import "regenerator-runtime/runtime";
+
+// ... (your existing imports and setup code)
+
+// Register the service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/serviceworker.js')
+      .then((registration) => {
+        console.log('ServiceWorker registration successful:', registration);
+      })
+      .catch((error) => {
+        console.log('ServiceWorker registration failed:', error);
+      });
+  });
+}
