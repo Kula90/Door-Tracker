@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     resources :construction_sites, only: [:index, :edit, :update, :destroy]
   end
 
+  get "/service_worker.js", to: "service_worker#index", defaults: { format: "js" }
+
   root to: 'construction_sites#index'
 end

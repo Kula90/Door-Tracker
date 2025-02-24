@@ -1,0 +1,58 @@
+const CACHE_NAME = 'door-tracker-v3';
+const OFFLINE_URL = '/offline.html';
+
+const ASSETS_TO_CACHE = [
+  '/',
+  OFFLINE_URL,
+  '/assets/application.css',
+  '/packs/js/application-b30eb6f71d6d1c1ad531.js',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      return Promise.all(
+        ASSETS_TO_CACHE.map((url) =>
+          cache.add(url).catch((error) =>
+            console.error(`Failed to cache ${url}:`, error)
+          )
+        )
+      );
+    })
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((name) => {
+          if (name !== CACHE_NAME) {
+            console.log('Deleting old cache:', name);
+            return caches.delete(name);
+          }
+        })
+      );
+    })
+  );
+  return self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      return (
+        cachedResponse ||
+        fetch(event.request)
+          .then((networkResponse) => {
+            return networkResponse;
+          })
+          .catch(() => caches.match(OFFLINE_URL))
+      );
+    })
+  );
+});
